@@ -1,0 +1,52 @@
+<section id="do-list">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                class="text-center d-flex justify-content-between"
+              >
+                Task
+                <a class="btn btn-dark" [routerLink]="['/app/create-task']"
+                  >+</a
+                >
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of tasks">
+              <td><app-task [tasks]="task"></app-task></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                class="text-center d-flex justify-content-between"
+              >
+                Kateqoriya
+                <a class="btn btn-dark" [routerLink]="['/app/create-category']"
+                  >+</a
+                >
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of categories">
+              <td class="text-right">
+                <app-category [category]="category"></app-category>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

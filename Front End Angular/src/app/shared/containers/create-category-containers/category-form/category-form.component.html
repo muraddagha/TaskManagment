@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <form [formGroup]="createCategoryForm" (ngSubmit)="createCategory()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Kateqoriya adı</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+          />
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">
+              Kateqoriya adı boş ola bilməz
+            </div>
+            <div *ngIf="f.name.errors.maxlength">Ad 50 xarakter ola bilər</div>
+            <div *ngIf="f.name.errors.conflict">Bu adda kateqoriya var</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Göndər</button>
+      </form>
+    </div>
+  </div>
+</div>

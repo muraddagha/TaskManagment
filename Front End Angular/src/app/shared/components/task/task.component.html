@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-between">
+  <p>{{ tasks.node }}</p>
+  <div class="d-flex align-items-center">
+    <span
+      class="badge me-4"
+      [ngClass]="{
+        'bg-success': tasks.isDone == true,
+        'btn-warning': tasks.isDone == false
+      }"
+    >
+      <span *ngIf="tasks.isDone == true">Finished</span>
+      <span *ngIf="tasks.isDone == false">Waiting</span>
+    </span>
+    <div class="btn-group">
+      <span class="btn btn-danger" (click)="removeTask(this.tasks.id)">
+        <fa-icon [icon]="icon"></fa-icon>
+      </span>
+      <a
+        class="btn btn-info"
+        [routerLink]="['/app/update-task', this.tasks.id]"
+      >
+        <fa-icon [icon]="edit"></fa-icon>
+      </a>
+    </div>
+  </div>
+</div>

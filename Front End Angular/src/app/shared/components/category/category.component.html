@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-between">
+  <p>{{ category.name }}</p>
+  <div class="btn-group">
+    <span class="btn btn-danger" (click)="removeCategory(this.category.id)">
+      <fa-icon [icon]="icon"></fa-icon>
+    </span>
+    <a
+      class="btn btn-info"
+      [routerLink]="['/app/update-category', this.category.id]"
+    >
+      <fa-icon [icon]="edit"></fa-icon>
+    </a>
+  </div>
+</div>
